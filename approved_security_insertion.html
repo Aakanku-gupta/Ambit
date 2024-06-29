@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width,initial-scale=1" name="viewport" />
+        <title>Dashboard</title>
+        <meta content="" name="description" />
+        <meta content="" name="keywords" />
+        <link href="assets/css/bootstrap.v5.min.css" rel="stylesheet" />
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+
+        <link href="assets/css/main.css" rel="stylesheet" />
+        <link href="assets/css/form-outline.css" rel="stylesheet" />
+        <link href="assets/css/responsive.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    </head>
+    <style>
+        .Approved:hover{
+            color: #00B69B;
+        }
+        .Pending:hover{
+            color: #DDAC00;;
+        }
+        .active1,
+        .btnn:hover {
+
+            color: black;
+        }
+
+        .floating-label-group {
+            position: relative;
+            margin-top: 15px;
+            margin-bottom: 25px;
+        }
+
+        .floating-label {
+
+            color: #cccccc;
+            position: absolute;
+            pointer-events: none;
+            top: 9px;
+            left: 12px;
+            transition: all 0.1s ease;
+        }
+
+        input:focus~.floating-label,
+        input:not(:focus):valid~.floating-label {
+            top: -20px;
+            bottom: 0px;
+            left: 15px;
+            font-size: 11px;
+            opacity: 1;
+            color: #404040;
+        }
+
+
+        /* 2nd */
+        .floating-label-group1 {
+            position: relative;
+            margin-top: 15px;
+            margin-bottom: 25px;
+        }
+
+        .floating-label1 {
+            font-size: 13px;
+            color: #cccccc;
+            position: absolute;
+            pointer-events: none;
+            top: 9px;
+            left: 20px;
+            transition: all 0.1s ease;
+            background-color: white;
+            width: 134px;
+        }
+
+        input:focus~.floating-label1,
+        input:not(:focus):valid~.floating-label1 {
+            top: -10px;
+            bottom: 0px;
+            left: 15px;
+            font-size: 11px;
+            opacity: 1;
+            color: #404040;
+            background-color: white;
+            height: 12px;
+        }
+
+
+      
+        /* browse file */
+        #custom-button {
+            font-size: 10px;
+            padding: 5px;
+            color: #ff0000;
+            border: 1px solid #fb8c8c;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* #custom-button:hover {
+        background-color: #00b28f;
+    } */
+
+        #custom-text {
+
+
+            color: white;
+            background: black;
+            padding: 8px;
+            border-radius: 0 5px 5px 0;
+            position: relative;
+            right: 8px;
+
+        }
+
+        /* toggle */
+        h1 {
+            color: green;
+        }
+
+        /* toggle in label designing */
+        .toggle {
+            position: relative;
+            display: inline-block;
+            width: 75px;
+            height: 30px;
+            background-color: red;
+            border-radius: 30px;
+            border: 2px solid gray;
+        }
+
+        /* After slide changes */
+        .toggle:after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 26px;
+            border-radius: 50%;
+            background-color: gray;
+            top: 1px;
+            left: 1px;
+            transition: all 0.5s;
+        }
+
+        /* Toggle text */
+
+
+        /* Checkbox checked effect */
+        .checkbox:checked+.toggle::after {
+            left: 49px;
+        }
+
+        /* Checkbox checked toggle label bg color */
+        .checkbox:checked+.toggle {
+            background-color: green;
+        }
+
+        /* Checkbox vanished */
+        .checkbox {
+            display: none;
+        }
+
+        /* modal1 */
+        /* The Modal (background) */
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            padding-top: 100px;
+            /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+
+
+        #table_Head {
+            color: white;
+
+        }
+
+        #lable {
+            position: relative;
+            top: 16px;
+            left: 5px;
+            background-color: #fff;
+        }
+
+        .Rejected {
+            background-color: #dfa2a2;
+            color: 
+#E30613;
+        }
+
+        .Approved {
+            background-color: #a3f7ec;
+            color: #00B69B;
+
+        }
+
+        .Pending {
+            background-color: #EFC326;
+            ;
+            color: 
+#DDAC00;
+
+        }
+
+        .configuration {
+            font-family: jost;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .search {
+            font-family: jost;
+            font-size: 12px;
+        }
+
+        #table_Head {
+            font-family: jost;
+            font-size: 14px;
+            font-weight: medium;
+
+        }
+
+        #for_table_color {
+            font-family: jost;
+            font-size: 12px;
+            font-weight: normal;
+
+        }
+
+        .xyz {
+            color:
+                #9D9D9C;
+        }
+    </style>
+    </style>
+
+    <body>
+        <!--Header start-->
+        <header id="header" class="header fixed-top d-flex align-items-center">
+            <div class="d-flex align-items-center justify-content-between">
+                <img src="assets/image/ambit.png" alt="" width="100%" class="logo1">
+                <i class="toggle-sidebar-btn pe-2">
+                    <i class="fa-solid fa-bars"></i>
+                </i>
+
+            </div>
+            <nav class="header-nav ms-auto">
+                <ul class="d-flex align-items-center">
+                    <li class="nav-item dropdown pe-4 list-inline"><a class="nav-link dropdown-toggle text-black small"
+                            href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">User</a>
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                            <li><a class="dropdown-item d-flex align-items-center" href="login.html"><i
+                                        class="fa fa-sign-out"></i>
+                                    <span>Logout</span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <!--Header end-->
+        <!--artical start-->
+        <!--Sidebar start-->
+        <!--left panel start-->
+        <aside id="sidebar" class="sidebar" style="background-color: black;">
+            <ul class="sidebar-nav" id="sidebar-nav">
+                <li class="nav-item"><img src="assets/image/home.png" alt="">
+                    <a class="" href="#"><span class="menu-list text-white"><b>Dashboard</b></span></a>
+                </li>
+
+            </ul>
+        </aside>
+        <!--left panel end-->
+        <!--Sidebar end-->
+        <!--Main start-->
+        <main id="main" class="main">
+            <section class="section">
+
+                <!--Table code start-->
+                <div id="my-card">
+                    <h4 class="configuration">MTF Insertion</h4>
+                </div><br>
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <div class="container">
+                            <div class="d-flex justify-content-between">
+                                <div class="floating-label-group ">
+                                    <input type="text" id="username" class="form-control" autocomplete="off" autofocus
+                                        required />
+                                    <label class="floating-label search">Search</label>
+                                </div>
+                                <div class="d-flex">
+                                    <div>
+                                        <select name=
+                                        "cars" id="cars" class="form-select">
+                                            <option value="volvo">Select</option>
+                                            <option value="saab">Approved</option>
+                                            <option value="volvo">Rejected</option>
+                                            <option value="saab">Pending</option>
+                                            
+
+                                        </select>
+                                    </div>&nbsp;
+                                    <div>
+                                        <button class="btn btn-dark" style="background-color:black ;"  id="myBtn">
+                                            Save</button>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+
+                            <div class="row justify-content-center">
+                                <div class=" col-12">
+                                    <div class=" text-center">
+                                        <div class="card-body p-0">
+                                            <!-- 1st -->
+
+
+                                            <div class="table-responsive ">
+                                                <table class="table table-hover mt-3" style="background-color: 
+                                                #E30613
+                                                ">
+                              
+                              <thead>
+                                                        <tr class="btn-s">
+                                                            <th scope="col" id="table_Head"><input type="checkbox">
+                                                                S.No <img src="assets/image/arrow.png" alt=""></th>
+                                                            <th scope="col" id="table_Head">
+                                                                Scrip Code</th>
+                                                            <!-- <th scope="col" id="table_Head">
+                                                                Series</th> -->
+
+                                                            <th scope="col" id="table_Head">
+                                                                Margin</th>
+
+
+                                                            <th scope="col" id="table_Head">
+                                                                Created Date/time</th>
+                                                            <th scope="col" id="table_Head">
+                                                                Checked By</th>
+                                                            <th scope="col" id="table_Head">
+                                                                Created By</th>
+                                                            <th scope="col" id="table_Head">
+                                                                Status</th>
+                                                            <th scope="col" id="table_Head">
+                                                                Remark</th>
+
+
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr style="background-color: #fffaf1">
+                                                            <td id="for_table_color"><input type="checkbox"> 1.</td>
+                                                            <td id="for_table_color">1234</td>
+                                                            <!-- <td id="for_table_color">Market_Cap</td> -->
+
+
+                                                            <td id="for_table_color">500,000</td>
+                                                            <td id="for_table_color" class="xyz">20 Jan 2024, 12 : 20 PM
+                                                            </td>
+                                                            <td id="for_table_color">Rishi Chaurasia</td>
+                                                            <td id="for_table_color" class="xyz">Lokesh Gajbhiye</td>
+                                                            <td id="for_table_color"><button type="button"
+                                                                    class="btn Rejected text-danger ">Rejected</button>
+                                                            </td>
+                                                            <td id="for_table_color">This ISIN Code <br> is not correct
+                                                            </td>
+
+                                                        </tr>
+
+                                                        <tr style="background-color: #fffaf1">
+                                                            <td id="for_table_color"><input type="checkbox"> 2.</td>
+                                                            <td id="for_table_color">1234</td>
+                                                            <!-- <td id="for_table_color">Price_Band</td> -->
+
+
+                                                            <td id="for_table_color">500,000</td>
+                                                            <td id="for_table_color" class="xyz">20 Jan 2024, 12 : 20 PM
+                                                            </td>
+                                                            <td id="for_table_color">Rishi Chaurasia</td>
+                                                            <td id="for_table_color" class="xyz">Lokesh Gajbhiye</td>
+                                                            <td id="for_table_color"><button class="btn Approved"
+                                                                   >Approved</button>
+                                                            </td>
+                                                            <!-- modal 1 -->
+                                                            <div>
+                                                                <div id="myModal" class="modal">
+
+                                                                    <!-- Modal content -->
+                                                                    <div class="modal-content">
+
+                                                                        <p class="configuration">Approved</p>
+                                                                        <hr>
+                                                                        <div class="row justify-content-center">
+
+                                                                            <div
+                                                                                class="floating-label-group1 w-50">
+                                                                                 <input type="text" id="username"
+                                                                                    class="form-control "
+                                                                                    placeholder="Enter Remark"
+                                                                                    autocomplete="off" autofocus
+                                                                                    required />
+                                                                                <label
+                                                                                    class="floating-label1 ">Remark</label>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <div class="row">
+
+                                                                            <div class="floating-label-group  ">
+                                                                                <a href="approved_security_insertion.html"
+                                                                                    class="btn btn-dark text-white mt-3 float-end ">
+                                                                                    Save</a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+
+
+                                                            <!-- modal 1 -->
+                                                            <td id="for_table_color">Correct Inputs</td>
+
+                                                        </tr>
+                                                        <tr style="background-color: #fffaf1">
+                                                            <td id="for_table_color"><input type="checkbox"> 3.</td>
+                                                            <td id="for_table_color">1234</td>
+                                                            <!-- <td id="for_table_color">Price_Band</td> -->
+
+
+                                                            <td id="for_table_color">500,000</td>
+                                                            <td id="for_table_color" class="xyz">20 Jan 2024, 12 : 20 PM
+                                                            </td>
+                                                            <td id="for_table_color">Rishi Chaurasia</td>
+                                                            <td id="for_table_color" class="xyz">Lokesh Gajbhiye</td>
+                                                            <td id="for_table_color"><button
+                                                                    class="btn Pending">Pending</button>
+                                                            </td>
+                                                            <td id="for_table_color">Pending For <br> a Reason</td>
+
+                                                        </tr>
+
+
+
+
+
+
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div id="manage-card" style="display: none; overflow-x: auto">
+                    <div style="cursor: pointer;">
+                        <a class="btnn active1" onclick="myCard()" style="color: rgb(139, 135, 135);">File
+                            Management</a>
+                        <i class="fa-solid fa-circle-chevron-left"></i>
+                        <a class="btnn" onclick="manageDetails()">
+                            Generate Report
+                        </a>
+                    </div>
+                    <div class="card mt-3">
+                        <div class="card-body">
+
+                            <div>
+
+                                <!-- 2nd -->
+
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!--Table code end-->
+            </section>
+        </main>
+        <!--Main end-->
+        <!--artical end-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/main.js"></script>
+        <script src="assets/js/cy.js"></script>
+        <script src="assets/js/newscript.js"></script>
+
+        <script>
+            function myCard() {
+                document.getElementById("my-card").style.display = "block";
+                document.getElementById("manage-card").style.display = "none";
+            }
+            function manageDetails() {
+                document.getElementById("my-card").style.display = "none";
+                document.getElementById("manage-card").style.display = "block";
+            }
+
+            var header = document.getElementById("myDIV");
+            var btns = header.getElementsByClassName("btn");
+            for (var i = 0; i < btns.length; i++) {
+                btns[i].addEventListener("click", function () {
+                    var current = document.getElementsByClassName("active1");
+                    current[0].className = current[0].className.replace(" active1", "");
+                    this.className += " active1";
+                });
+            }
+        </script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var openModalBtn = document.getElementById('openModalBtn');
+                var closeModalBtn = document.getElementById('closeModalBtn');
+                var modal = document.getElementById('myModal');
+
+                openModalBtn.addEventListener('click', function () {
+                    modal.style.display = 'block';
+                });
+
+                closeModalBtn.addEventListener('click', function () {
+                    modal.style.display = 'none';
+                });
+
+                window.addEventListener('click', function (event) {
+                    if (event.target == modal) {
+                        modal.style.display = 'none';
+                    }
+                });
+            });
+
+        </script>
+        <!-- browse file -->
+        <script>
+            const realFileBtn = document.getElementById("real-file");
+            const customBtn = document.getElementById("custom-button");
+            const customTxt = document.getElementById("custom-text");
+
+            customBtn.addEventListener("click", function () {
+                realFileBtn.click();
+            });
+
+            realFileBtn.addEventListener("change", function () {
+                if (realFileBtn.value) {
+                    customTxt.innerHTML = realFileBtn.value.match(
+                        /[\/\\]([\w\d\s\.\-\(\)]+)$/
+                    )[1];
+                } else {
+                    customTxt.innerHTML = "No file chosen, yet.";
+                }
+            });
+
+        </script>
+        <script>
+            // Get the modal
+            var modal = document.getElementById("myModal");
+
+            // Get the button that opens the modal
+            var btn = document.getElementById("myBtn");
+
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks the button, open the modal 
+            btn.onclick = function () {
+                modal.style.display = "block";
+            }
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        </script>
+
+    </body>
+
+</html>
